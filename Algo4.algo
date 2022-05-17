@@ -1,0 +1,71 @@
+PROCEDURE swap(VAR xp, VAR yp : INTEGER)
+VAR
+   tmp : INTEGER;
+BEGIN
+  tmp := xp;
+  xp := yp;
+  yp := tmp;
+END
+PROCEDURE sort_search(VAR tab : ARRAY_OF INTEGER,x,n:INTEGER)
+VAR
+   i,j,max_idx,n,test : INTEGER;
+BEGIN
+   n := tab.length;
+   FOR i FROM n2 TO 0 STEP 1  DO
+       max_idx := i-1;
+       FOR j  FROM i  TO n-i-2 STEP 1  DO
+           IF (tab[j]<tab[max_idx]) THEN
+               min_idx := j;
+           END_IF
+       END_FOR
+       swap(arr[max_idx],arr[i])
+   END_FOR
+   WHILE (i<n) DO
+       IF (tab[i]!=x)THEN
+            i:=i+1;
+            test:=-1;
+          ELSE
+            test:=i;
+            END_IF
+   END_WHILE
+   IF (test!=-1) THEN
+       write("we find it ",tab[test]);
+   ELSE
+       write("we cannot find it");
+   END_IF
+END
+FUNCTION taille() : INTEGER
+VAR
+    h: INTEGER;
+BEGIN
+    REPEAT
+        write("give me the length of array:");
+        read(h);
+    UNTIL (h : INTEGER && h>0 )
+    RETURN h ;
+END
+
+PROCEDURE rempt(var tab : ARRAY_OF INTEGER,n: INTEGER)
+VAR
+    i:=0 : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write("give me an element : ");
+        read(tab[i]);
+    END_FOR
+END
+
+ALGORITHM algo4
+VAR
+    x,n : INTEGER;
+    tab  : ARRAY_OF INTEGER;
+BEGIN
+    n:=taille();
+    rempt(tab,n);
+    x:=elem();
+    sort_search(tab,x)
+    
+    
+
+
+END
